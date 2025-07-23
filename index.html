@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Secure login page for modern web applications." />
+    <meta name="keywords" content="login, authentication, web app, security" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Login Project | Secure Access" />
+    <meta property="og:description" content="A modern and secure login interface." />
+    <meta property="og:type" content="website" />
+    <!-- <meta property="og:image" content="https://example.com/og-image.jpg" /> -->
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Favicon (modern formats) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/style.css" as="style" />
+    <link rel="preload" href="/src/main.jsx" as="script" />
+
+    <!-- CSS (with fallback for disabled JS) -->
+    <noscript>
+      <link rel="stylesheet" href="/src/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="/src/style.css" media="print" onload="this.media='all'" />
+
+    <title>Login Project | Secure Access</title>
+  </head>
+  <body>
+    <!-- Progressive Enhancement: Basic content for non-JS users -->
+    <noscript>
+      <div class="noscript-warning">
+        <h1>JavaScript is disabled</h1>
+        <p>This application requires JavaScript to function properly.</p>
+      </div>
+    </noscript>
+
+    <!-- App root with ARIA attributes for accessibility -->
+    <div id="root" role="main" aria-live="polite"></div>
+
+    <!-- Async script loading with fallback -->
+    <script type="module" src="/src/main.jsx" async></script>
+    <script>
+      // Fallback for module support (legacy browsers)
+      if (!('noModule' in HTMLScriptElement.prototype)) {
+        document.write('<script src="/src/legacy.js"><\/script>');
+      }
+    </script>
+
+    <!-- Performance monitoring (example) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+  </body>
+</html>
